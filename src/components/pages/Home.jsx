@@ -6,7 +6,7 @@ const Home = () => {
 
   return (
     <div className="home">
-    <div className="hero">
+      <div className="hero">
         <section className="hero-content">
           <h2 className="sr-only">Promoted Content</h2>
           <p className="subtitle">No fees.</p>
@@ -29,6 +29,6 @@ const Home = () => {
     </div>
   );
 }
-   
+
 
 export default Home;

@@ -15,8 +15,8 @@ const initialState = {
 
 export const loginUser = createAsyncThunk(
   'auth/loginUser',
-  ({ email, password, rememberMe }, { rejectWithValue, dispatch }) => {
-   
+  ({ email, password }, { rejectWithValue, dispatch }) => {
+
     return axios.post('http://localhost:3001/api/v1/user/login', { email, password })
       .then(response => {
         const token = response.data.body.token;
@@ -39,30 +39,30 @@ export const userlogout = createAsyncThunk(
   async () => {
     localStorage.removeItem('token');
   }
-  
-  )
 
-const authSlice = createSlice ({
+)
+
+const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    login: (state) => {      
-     
+    login: (state) => {
+
 
       state.isAuthenticated = true;
-      state.token= localStorage.getItem('token');
-     
-       
+      state.token = localStorage.getItem('token');
+
+
     },
     logout: (state) => {
       state.isAuthenticated = false;
       state.user = null;
       state.currentUser = null;
-      state.userDetails=null;
-      localStorage.removeItem('token'); 
+      state.userDetails = null;
+      localStorage.removeItem('token');
     },
     updateUserName: (state, action) => {
-      state.userName = action.payload; 
+      state.userName = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -78,24 +78,24 @@ const authSlice = createSlice ({
         state.token = action.payload.body.token;
         state.email = action.payload.email;
         state.userName = action.payload.userName;
-        localStorage.setItem('token', state.token); 
+        localStorage.setItem('token', state.token);
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
-        localStorage.removeItem('token'); 
+        localStorage.removeItem('token');
 
       })
 
       .addCase(userlogout.fulfilled, (state) => {
         state.loading = false;
         state.isAuthenticated = false;
-        state.currentUser = null; 
-        state.userName=null;
-        state.userDetails=null;
-        localStorage.removeItem('token'); 
+        state.currentUser = null;
+        state.userName = null;
+        state.userDetails = null;
+        localStorage.removeItem('token');
       });
-      
+
   },
 });
 

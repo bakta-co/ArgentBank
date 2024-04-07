@@ -15,7 +15,7 @@ function Header() {
           <div className="main-nav-logo-nimage">
             <img
               className="main-nav-logo-image"
-              src= {logo}
+              src={logo}
               alt="Argent Bank Logo"
             />
           </div>
