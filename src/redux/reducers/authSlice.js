@@ -1,9 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import axiosInstance from '../../services/caller.service';
-import { useNavigate } from 'react-router-dom';
 import { displayError } from './ErrorSlice';
-import { createBrowserHistory } from 'history';
 
 const initialState = {
   isAuthenticated: !!localStorage.getItem('token'),

@@ -10,13 +10,6 @@ import rootReducer from "./redux/reducers";
 const store = configureStore({
    reducer: rootReducer,
 
-   middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware().prepend([
-    (store) => (next) => (action) => {
-
-      next(action);
-    }])
-
 });
 
   const root = ReactDOM.createRoot(document.getElementById("root"));
