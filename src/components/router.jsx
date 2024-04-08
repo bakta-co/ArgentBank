@@ -13,13 +13,13 @@ function Router() {
 
   return (
     <div>
-    <Header/>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />}/>
-      <Route path="/profil" element={<PrivateRoute />} />
-    </Routes>
-    <Footer/>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profil" element={<PrivateRoute />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }

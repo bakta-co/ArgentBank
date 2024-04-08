@@ -4,21 +4,15 @@ import Router from "./components/router";
 
 
 
-function App () {
- 
+function App() {
+
 
   return (
-
-
     <BrowserRouter>
-
       <main>
         <Router />
       </main>
-     
     </BrowserRouter>
-    
-
   );
 }
 
